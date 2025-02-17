@@ -1,8 +1,3 @@
-# Abgabe
-
-## Ihre Cloud-Init Datei mit dem geänderten Passwort
-
-```yaml
 #cloud-config
 users:
   - name: ubuntu
@@ -50,11 +45,3 @@ runcmd:
   - sudo systemctl start mongod
   - sudo mongosh < /home/ubuntu/mongodbuser.txt
   - sudo systemctl restart mongod
-
-```
-
-## 2. Screenshot von Compass mit der Liste der bereits bestehenden Datenbanken.
-![bereitsBestehendeDatenbanken.png](../images/bereitsBestehendeDatenbanken.png)
-
-## 3. Schauen Sie sich Ihren Connection String an. Erklären Sie was die Option authSource=admin macht und wieso dieser Parameter so korrekt ist.  (Schauen Sie in den Quellen nach)
-damit kann ich mich auf die Datenbank namens Admin verbinden
