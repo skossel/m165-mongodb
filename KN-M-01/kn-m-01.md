@@ -59,7 +59,7 @@ runcmd:
 ![bereitsBestehendeDatenbanken.png](../images/bereitsBestehendeDatenbanken.png)
 
 ### 3. Schauen Sie sich Ihren Connection String an. Erklären Sie was die Option authSource=admin macht und wieso dieser Parameter so korrekt ist.  (Schauen Sie in den Quellen nach)
-Antwort: Damit kann ich mich auf die Datenbank namens Admin verbinden. Diese Datenbank wird als standard Authentifizierungsdatenbank verwendet.
+Antwort: Damit in der Datenbank Admin die Benutzer checken und mit einem solchen Benutzer kann man dann auf eine Datenbank verbinden.
 
 ### 4. Im cloud-init finden Sie zweimal den Linux Befehle sed.
 
