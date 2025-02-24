@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "67bc7023bc83165ede339541"
+  },
+  "adress": "Mustertrasse 12",
+  "age": 17,
+  "birthdate": {
+    "$date": "2006-02-24T00:00:00.000Z"
+  }
+}]

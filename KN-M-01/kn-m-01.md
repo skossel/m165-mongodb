@@ -1,6 +1,8 @@
 # Abgabe
 
-## Ihre Cloud-Init Datei mit dem geänderten Passwort
+## Aufgabe A)
+
+### Ihre Cloud-Init Datei mit dem geänderten Passwort
 
 ```yaml
 #cloud-config
@@ -53,8 +55,85 @@ runcmd:
 
 ```
 
-## 2. Screenshot von Compass mit der Liste der bereits bestehenden Datenbanken.
+### 2. Screenshot von Compass mit der Liste der bereits bestehenden Datenbanken.
 ![bereitsBestehendeDatenbanken.png](../images/bereitsBestehendeDatenbanken.png)
 
-## 3. Schauen Sie sich Ihren Connection String an. Erklären Sie was die Option authSource=admin macht und wieso dieser Parameter so korrekt ist.  (Schauen Sie in den Quellen nach)
-damit kann ich mich auf die Datenbank namens Admin verbinden
+### 3. Schauen Sie sich Ihren Connection String an. Erklären Sie was die Option authSource=admin macht und wieso dieser Parameter so korrekt ist.  (Schauen Sie in den Quellen nach)
+Antwort: Damit kann ich mich auf die Datenbank namens Admin verbinden. Diese Datenbank wird als standard Authentifizierungsdatenbank verwendet.
+
+### 4. Im cloud-init finden Sie zweimal den Linux Befehle sed.
+
+### a.) Erklären Sie was die beiden Befehle bewirken. (Schauen Sie in den Quellen nach). Sie sollen erklären wieso die beiden Befehle notwendig sind, resp. was der Einfluss auf unsere MongoDB ist.
+
+1. sed Befehl: sudo sed -i 's/#security:/security:\n  authorization: enabled/g' /etc/mongod.conf
+Wieso notwendig?
+Dieser Befehl ersetzt #security durch security:\n  authorization: enabled/g in der Datei /etc/mongod.conf.
+Was ist der Einfluss auf MongoDB?
+Somit wird die Authentifizierung aktiviert, dass nur berechtigte Nutzer auf die Datenbank zugreifen können.
+
+2. sed Befehl:   - sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+Wieso notwendig?
+Standardmässig ist MongoDB nur auf der IP-Adresse 127.0.0.1, also localhost, erreichbar. 
+Dieser Befehl ersetzt die IP-Adresse mit 0.0.0.0, damit die Datenbank auf allen IP-Adressen erreichbar ist.
+Was ist der Einfluss auf MongoDB?
+Ermöglicht den Zugriff auf die Datenbank von anderen Geräten.
+
+#### Allgemeine Erklärung zum sed Command
+![sedCommand.png](../images/sedCommand.png)
+
+### b.) Zeigen Sie mit einem Screenshot den Inhalt der MongoDB Konfigurations-Datei in dem die beiden ersetzten Werte sichtbar sind. Sie können die Datei z.B. mit nano öffnen oder mit cat den Inhalt anzeigen lassen und mit grep filtern.
+![mognodbConfig.png](../images/mognodbConfig.png)
+
+## Aufgabe B)
+### 1. Screenshot (oder JSON) Ihres einzufügenden Dokuments (bevor Sie es einfügen)
+![insertJSON.png](../images/insertJSON.png)
+
+### 2. Screenshot Ihrer Compass-Applikation mit der Datenbank, Collection und Dokument sichtbar, nachdem Sie den Datentyp geändert haben.
+![datetype.png](../images/datetype.png)
+
+### 3. Export-Datei und Erklärung zu dem Datentyp mit möglichen Implikationen auf 
+andere Datentypen. Wieso ist dieser komplizierte Weg notwendig, 
+um ein Datum zu definieren?
+
+```json
+[{
+  "_id": {
+    "$oid": "67bc7023bc83165ede339541"
+  },
+  "adress": "Mustertrasse 12",
+  "age": 17,
+  "birthdate": {
+    "$date": "2006-02-24T00:00:00.000Z"
+  }
+}]
+```
+
+##### Wieso so kompliziert?
+JSON kennt nur primitive Datentypen wie String, Number, Boolean, Array und Object.
+Deshalb muss ein Datum in einem Objekt definiert werden.
+In MongoDB kann man mit "$date" direkt ein Datum angeben.
+
+## Aufgabe C)
+### Screenshot von Compass, der zeigt, dass Sie die Befehle eingegeben haben
+![mongodbCommands.png](../images/mongodbCommands.png)
+
+### Screenshot von der MongoDB-Shell auf dem Linux-Server, der zeigt, dass Sie die Befehle eingegeben haben.
+![mongdbShCommands.png](../images/mongdbShCommands.png)
+
+### Was machen die Befehle 1-5? Was ist der Unterschied zwischen Collections und Tables?
+| Command             | Erklärung                                             |
+|---------------------|-------------------------------------------------------|
+| `show dbs;`         | Zeigt alle Datenbanken an.                            |
+| `show databases;`   | Dasselbe wie `show dbs;`.                             |
+| `use Kossel;`       | Wechselt zur Datenbank namens Kossel.                 |
+| `show collections;` | Zeigt alle Collections der aktuellen Datenbank an.    |
+| `show tables;`      | Alias für `show collections;` in MongoDB.             |
+| `var test="hallo";` | Erstellt eine Variable `test` mit dem Wert `"hallo"`. |
+| `test;`             | Gibt den Wert der Variable `test` aus.                |
+
+#### Unterschied zwischen Collection und Table
+
+| Collection (MongoDB) | Table (SQL) |
+|----------------------|------------|
+| Flexibles Schema (keine feste Struktur) | Striktes Schema (feste Spalten & Datentypen) |
+| Speichert Dokumente im BSON-Format | Speichert Daten in Zeilen und Spalten |
