@@ -15,3 +15,5 @@ Man möchte ziemlich oft wissen, welche Order von einem Investor getätigt werde
 Orders gehören zu einem Investor, deshalb ist Order in Investor enthalten.
 Da ein stock auch einzel abgefragt werden kann, ist er in einer einzelnen Tabelle. Er ist in order referenziert, da ein stock oft orders besitzt.
 Ein stockExchange ist unabhängig von einem stock, deshalb ebenfalls eine weitere Tabelle gewählt und referenziert, um festzustellen, welche stockes an welcher Börse getradet werden. 
+
+### Info Ende B anfangs c stehen geblieben
