@@ -56,7 +56,7 @@ runcmd:
 ```
 
 ### 2. Screenshot von Compass mit der Liste der bereits bestehenden Datenbanken.
-![bereitsBestehendeDatenbanken.png](../images/bereitsBestehendeDatenbanken.png)
+![bereitsBestehendeDatenbanken.png](images/bereitsBestehendeDatenbanken.png)
 
 ### 3. Schauen Sie sich Ihren Connection String an. Erklären Sie was die Option authSource=admin macht und wieso dieser Parameter so korrekt ist.  (Schauen Sie in den Quellen nach)
 Antwort: Damit in der Datenbank Admin die Benutzer checken und mit einem solchen Benutzer kann man dann auf eine Datenbank verbinden.
@@ -79,17 +79,17 @@ Was ist der Einfluss auf MongoDB?
 Ermöglicht den Zugriff auf die Datenbank von anderen Geräten.
 
 #### Allgemeine Erklärung zum sed Command
-![sedCommand.png](../images/sedCommand.png)
+![sedCommand.png](images/sedCommand.png)
 
 ### b.) Zeigen Sie mit einem Screenshot den Inhalt der MongoDB Konfigurations-Datei in dem die beiden ersetzten Werte sichtbar sind. Sie können die Datei z.B. mit nano öffnen oder mit cat den Inhalt anzeigen lassen und mit grep filtern.
-![mognodbConfig.png](../images/mognodbConfig.png)
+![mognodbConfig.png](images/mognodbConfig.png)
 
 ## Aufgabe B)
 ### 1. Screenshot (oder JSON) Ihres einzufügenden Dokuments (bevor Sie es einfügen)
-![insertJSON.png](../images/insertJSON.png)
+![insertJSON.png](images/insertJSON.png)
 
 ### 2. Screenshot Ihrer Compass-Applikation mit der Datenbank, Collection und Dokument sichtbar, nachdem Sie den Datentyp geändert haben.
-![datetype.png](../images/datetype.png)
+![datetype.png](images/datetype.png)
 
 ### 3. Export-Datei und Erklärung zu dem Datentyp mit möglichen Implikationen auf 
 andere Datentypen. Wieso ist dieser komplizierte Weg notwendig, 
@@ -115,10 +115,10 @@ In MongoDB kann man mit "$date" direkt ein Datum angeben.
 
 ## Aufgabe C)
 ### Screenshot von Compass, der zeigt, dass Sie die Befehle eingegeben haben
-![mongodbCommands.png](../images/mongodbCommands.png)
+![mongodbCommands.png](images/mongodbCommands.png)
 
 ### Screenshot von der MongoDB-Shell auf dem Linux-Server, der zeigt, dass Sie die Befehle eingegeben haben.
-![mongdbShCommands.png](../images/mongdbShCommands.png)
+![mongdbShCommands.png](images/mongdbShCommands.png)
 
 ### Was machen die Befehle 1-5? Was ist der Unterschied zwischen Collections und Tables?
 | Command             | Erklärung                                             |
