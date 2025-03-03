@@ -1,15 +1,14 @@
 ## Aufgabe A)
-![konzeptionellesModell.png](konzeptionellesModell.png)
+![konzeptionellesV2.png](images/konzeptionellesV2.png)
 
 ### Kurze textuelle Erklärungen zu den Entitäten und Beziehungen.
-Ein Investor kann mehrere Aktien haben, aber eine Aktie kann nur von einem Investor gehalten werden.
-Eine Aktie kann mehrere Orders haben und ein Order kann aus mehreren Aktien bestehen.
-Eine Börse kann mehrere Orders haben und ein Order kann nur auf einer Börse plaziert werden.
-Ein Investor kann nur einen Order auf eine bestimmte Aktie machen und derselbe Order kann von mehreren Investoren getätigt werden.
+Ein Investor hat mit mehreren Brokern zu tun. Ein Broker kann meherere Investoren haben.
+Ein Investor kann mehrere Aktien von Companies besitzen. Eine Company kann von mehrere Investoren besessen werden.
+Ein Exchange kann mehrere Aktien von Companies haben. Eine Company nur an einem Exchange gehandelt werden.
 
 ## Aufgabe B)
 ### Ein Bild des logischen Datenmodells.
-![logischesModell.png](logischesModell.png)
+![logischesV2.png](images/logischesV2.png)
 
 ### Erklärung zu Verschachtelungen. wieso haben Sie Ihre Variante gewählt.
 Man möchte ziemlich oft wissen, welche Order von einem Investor getätigt werden. Deshalb ist Order in Investor enthalten.
