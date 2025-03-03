@@ -167,3 +167,6 @@ printjson(
 ```
 
 ## Aufgabe D)
+Hier stehen geblieben.
+
+update.js ist das File db heisst stockMarket
