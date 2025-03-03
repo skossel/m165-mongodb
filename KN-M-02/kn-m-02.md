@@ -12,7 +12,7 @@ Ein Exchange kann mehrere Aktien von Companies haben. Eine Company nur an einem 
 
 ### Erklärung zu Verschachtelungen. wieso haben Sie Ihre Variante gewählt.
 Ein Investor wird in einer Dreiecks Beziehung mit Broker und Company zusammen aufgerufen, da man wissen möchte, welcher Investor mit welchen Brokern zu tun hat und welche Anteile besitzt.
-Ein Exchange kann auch Einzeln aufgerufen werden und ist unabhängig von den anderen Entitäten. 
+Ein Exchange kann auch Einzeln aufgerufen werden und kann alleine stehen.
 
 ## Aufgabe C)
 ### Script mit den Befehlen zur Erstellung der Collections.
