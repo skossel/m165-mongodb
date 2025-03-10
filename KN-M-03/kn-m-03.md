@@ -1,6 +1,7 @@
 ## Aufgabe A)
 ```javascript
-use stockMarket;
+use
+stockMarket;
 
 let exchange1Id = new ObjectId();
 let exchange2Id = new ObjectId();
@@ -12,36 +13,60 @@ db.exchange.insertMany([
         name: "FBW",
         location: "Frankfurt",
         launchTime: new Date("1985-09-09T09:00:00Z"),
-        companies: {
-            _id: company1Id,
-            ISIN: "US0378331005",
-            tickerSymbol: "AAPL",
-            price: 242.10,
-        }
+        companies: [
+            {
+                _id: company1Id,
+                ISIN: "US0378331005",
+                tickerSymbol: "AAPL",
+                price: 242.10,
+            },
+            {
+                _id: company2Id,
+                ISIN: "CH0010570767",
+                tickerSymbol: "LISP",
+                price: 11410.00,
+            }
+        ]
     },
     {
         _id: exchange2Id,
         name: "NASDAQ",
         location: "New York",
         launchTime: new Date("1971-02-08T09:00:00Z"),
-        companies: {
-            _id: company2Id,
-            ISIN: "CH0010570767",
-            tickerSymbol: "LISP",
-            price: 11410.00,
-        }
+        companies: [
+            {
+                _id: company1Id,
+                ISIN: "US0378331005",
+                tickerSymbol: "AAPL",
+                price: 242.10,
+            },
+            {
+                _id: company2Id,
+                ISIN: "CH0010570767",
+                tickerSymbol: "LISP",
+                price: 11410.00,
+            }
+        ]
     },
     {
         _id: exchange3Id,
         name: "SIX",
         location: "Zuerich",
         launchTime: new Date("1995-05-03T09:00:00Z"),
-        companies: {
-            _id: company3Id,
-            ISIN: "DE0007030009",
-            tickerSymbol: "RHM",
-            price: 1144.50,
-        }
+        companies: [
+            {
+                _id: company1Id,
+                ISIN: "US0378331005",
+                tickerSymbol: "AAPL",
+                price: 242.10,
+            },
+            {
+                _id: company2Id,
+                ISIN: "CH0010570767",
+                tickerSymbol: "LISP",
+                price: 11410.00,
+            }
+        ]
     }
 ]);
 
@@ -76,21 +101,21 @@ db.investor.insertOne({
     _id: investor1Id,
     name: "Sandro",
     IBAN: "CH9300762011623852957",
-    trades: [company1Id, broker1Id]
+    trades: [{company1Id, broker1Id}, {company2Id, broker2Id}, {company3Id, broker3Id}]
 });
 
 db.investor.insertOne({
     _id: investor2Id,
     name: "Mario",
     IBAN: "CH9300762011623852958",
-    trades: [company2Id, broker2Id]
+    trades: [{company1Id, broker1Id}, {company2Id, broker2Id}, {company3Id, broker3Id}]
 });
 
 db.investor.insertOne({
     _id: investor3Id,
     name: "Jannis",
     IBAN: "CH9300762011623852959",
-    trades: [company3Id, broker3Id]
+    trades: [{company1Id, broker1Id}, {company2Id, broker2Id}, {company3Id, broker3Id}]
 });
 ```
 
