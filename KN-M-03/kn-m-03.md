@@ -101,21 +101,21 @@ db.investor.insertOne({
     _id: investor1Id,
     name: "Sandro",
     IBAN: "CH9300762011623852957",
-    trades: [{company1Id, broker1Id}, {company2Id, broker2Id}, {company3Id, broker3Id}]
+    trades: [{"company": company1Id, "broker": broker1Id}, {"company": company2Id, "broker": broker2Id}, {"company": company3Id, "broker": broker3Id}]
 });
 
 db.investor.insertOne({
     _id: investor2Id,
     name: "Mario",
     IBAN: "CH9300762011623852958",
-    trades: [{company1Id, broker1Id}, {company2Id, broker2Id}, {company3Id, broker3Id}]
+    trades: [{"company": company1Id, "broker": broker1Id}, {"company": company2Id, "broker": broker2Id}, {"company": company3Id, "broker": broker3Id}]
 });
 
 db.investor.insertOne({
     _id: investor3Id,
     name: "Jannis",
     IBAN: "CH9300762011623852959",
-    trades: [{company1Id, broker1Id}, {company2Id, broker2Id}, {company3Id, broker3Id}]
+    trades: [{"company": company1Id, "broker": broker1Id}, {"company": company2Id, "broker": broker2Id}, {"company": company3Id, "broker": broker3Id}]
 });
 ```
 
