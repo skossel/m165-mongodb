@@ -126,6 +126,19 @@ use stockMarket;
 db.investor.deleteOne({ _id: investor1Id });
 ```
 
+```javascript
+use stockMarket;
+
+db.exchange.deleteMany({
+    $or: [
+        { _id: exchange1Id },
+        { _id: exchange3Id }
+    ]
+});
+```
+
+
+
 ## Aufgabe C)
 ### Mindestens eine Abfrage pro Collection
 ```javascript
@@ -167,6 +180,24 @@ printjson(
 ```
 
 ## Aufgabe D)
-Hier stehen geblieben.
+```javascript
+db.broker.updateOne(
+    { _id: ObjectId('67c5c097c951e568cb4b94b6') },
+    { $set: { tradingFees: 7.00 } }
+);
 
-update.js ist das File db heisst stockMarket
+db.company.updateMany(
+    { $or: [ { tickerSymbol: "AAPL" }, { tickerSymbol: "RHM" } ] },
+    { $inc: { price: 10 } }
+);
+
+db.exchange.replaceOne(
+    { _id: ObjectId('67c5c3b1c951e568cb4b94bc') },
+    {
+        _id: ObjectId('67c5c3b1c951e568cb4b94bc'),
+        name: "FBW",
+        location: "Frankfurt am Main",
+        launchTime: new Date("1985-09-09T09:00:00Z")
+    }
+);
+```

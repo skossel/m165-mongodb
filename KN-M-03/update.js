@@ -1,22 +1,18 @@
 
 db.broker.updateOne(
-    { _id: broker1Id },
-    { $set: { tradingFees: 5.00 } }
+    { _id: ObjectId('67c5c097c951e568cb4b94b6') },
+    { $set: { tradingFees: 7.00 } }
 );
 
-// 2. updateMany() auf der Company-Collection (ODER-Verknuepfung, ohne _id)
-// Mehrere Unternehmen werden hier gleichzeitig auf Vordermann gebracht.
 db.company.updateMany(
     { $or: [ { tickerSymbol: "AAPL" }, { tickerSymbol: "RHM" } ] },
     { $inc: { price: 10 } }
 );
 
-// 3. replaceOne() auf der Exchange-Collection
-// Wie ein komplettes Neulayout: Ein Dokument wird komplett ersetzt.
 db.exchange.replaceOne(
-    { _id: exchange1Id },
+    { _id: ObjectId('67c5c3b1c951e568cb4b94bc') },
     {
-        _id: exchange1Id,
+        _id: ObjectId('67c5c3b1c951e568cb4b94bc'),
         name: "FBW",
         location: "Frankfurt am Main",
         launchTime: new Date("1985-09-09T09:00:00Z")
