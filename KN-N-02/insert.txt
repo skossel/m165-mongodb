@@ -1,0 +1,29 @@
+CREATE
+  (ex1:Exchange {name: "FBW", location: "Frankfurt", launchTime: date("1985-09-09")}),
+  (ex2:Exchange {name: "NASDAQ", location: "New York", launchTime: date("1971-02-08")}),
+  (ex3:Exchange {name: "SIX", location: "Zuerich", launchTime: date("1995-05-03")}),
+
+  (co1:Company {ISIN: "US0378331005", tickerSymbol: "AAPL", price: 242.10}),
+  (co2:Company {ISIN: "CH0010570767", tickerSymbol: "LISP", price: 11410.00}),
+  (co3:Company {ISIN: "US0231210419", tickerSymbol: "RHM", price: 1144.50}),
+
+  (br1:Broker {name: "SZKB", tradingFees: 4.30}),
+  (br2:Broker {name: "UBS", tradingFees: 9.70}),
+  (br3:Broker {name: "DEGIRO", tradingFees: 2.50}),
+
+  (inv1:Investor {name: "Sandro", IBAN: "CH9300762011623852957"}),
+  (inv2:Investor {name: "Mario", IBAN: "CH9300762011623852958"}),
+  (inv3:Investor {name: "Jannis", IBAN: "CH9300762011623852959"}),
+
+  (co1)-[:TRADES {date: date("2020-01-01")}]->(ex1),
+  (co2)-[:TRADES {date: date("2020-01-02")}]->(ex2),
+  (co3)-[:TRADES {date: date("2020-01-03")}]->(ex3),
+
+  (inv1)-[:HAS_IN_PORTFOLIO {date: date("2021-05-10")}]->(co1),
+  (inv2)-[:HAS_IN_PORTFOLIO {date: date("2021-06-11")}]->(co2),
+  (inv3)-[:HAS_IN_PORTFOLIO {date: date("2021-07-12")}]->(co3),
+
+  (inv1)-[:TRADES {date: date("2022-01-15")}]->(br1),
+  (inv2)-[:TRADES {date: date("2022-02-16")}]->(br2),
+  (inv3)-[:TRADES {date: date("2022-03-17")}]->(br3)
+;
