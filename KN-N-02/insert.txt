@@ -15,15 +15,19 @@ CREATE
   (inv2:Investor {name: "Mario", IBAN: "CH9300762011623852958"}),
   (inv3:Investor {name: "Jannis", IBAN: "CH9300762011623852959"}),
 
-  (co1)-[:TRADES {date: date("2020-01-01")}]->(ex1),
-  (co2)-[:TRADES {date: date("2020-01-02")}]->(ex2),
-  (co3)-[:TRADES {date: date("2020-01-03")}]->(ex3),
+  (co1)-[:TRADES]->(ex1),
+  (co2)-[:TRADES]->(ex2),
+  (co3)-[:TRADES]->(ex3),
 
-  (inv1)-[:HAS_IN_PORTFOLIO {date: date("2021-05-10")}]->(co1),
-  (inv2)-[:HAS_IN_PORTFOLIO {date: date("2021-06-11")}]->(co2),
-  (inv3)-[:HAS_IN_PORTFOLIO {date: date("2021-07-12")}]->(co3),
+  (inv1)-[:TRADES {date: date("2021-05-10")}]->(co1),
+  (inv2)-[:TRADES {date: date("2021-06-11")}]->(co2),
+  (inv3)-[:TRADES {date: date("2021-07-12")}]->(co3),
 
-  (inv1)-[:TRADES {date: date("2022-01-15")}]->(br1),
-  (inv2)-[:TRADES {date: date("2022-02-16")}]->(br2),
-  (inv3)-[:TRADES {date: date("2022-03-17")}]->(br3)
+  (inv1)-[:WORKS_WITH]->(br1),
+  (inv2)-[:WORKS_WITH]->(br2),
+  (inv3)-[:WORKS_WITH]->(br3),
+
+  (br1)-[:HAS_IN_PORTFOLIO]->(co1),
+  (br2)-[:HAS_IN_PORTFOLIO]->(co2),
+  (br3)-[:HAS_IN_PORTFOLIO]->(co3)
 ;

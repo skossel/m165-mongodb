@@ -32,6 +32,14 @@ RETURN inv.name AS Investor, broker.name AS Broker, t.date AS Datum;
 ```
 ![allInvestors.png](images/allInvestors.png)
 
+2.1 Alle Investoren, die an einem bestimmten Datum gehandelt haben
+```
+MATCH (i:Investor)-[t:TRADES]->(c:Company), (c)-[:TRADES]->(ex:Exchange)
+WHERE t.date = date("2021-05-10")
+RETURN i
+```
+![search.jpg](images/search.jpg)
+
 3. Alle Investoren, die in Unternehmen investiert haben, die an Exchanges gelistet sind, welche in den 1990er Jahren gelaunched wurden.
 ```
 MATCH (ex:Exchange)<-[:TRADES]-(co:Company)<-[t:HAS_IN_PORTFOLIO]-(inv:Investor)
@@ -56,6 +64,7 @@ RETURN br.name, count(t)
 MATCH (inv:Investor {name: "Sandro"})
 DELETE inv;
 ```
+Erklärung: Ohne Detached wir nur der Knoten gelöscht, die Beziehungen bleiben und dies geht nicht. Man muss also detached nutzen um auch die Beziehungen dazu zu löschen.
 ![relationship.png](images/relationship.png)
 
 ### nachher mit detach (löscht auch weitere Beziehungen)
