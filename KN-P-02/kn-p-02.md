@@ -1,16 +1,13 @@
 ## Aufgabe a)
 ### eigene Metrik schreiben
-1. Pyhton Server erstellt 
+## 1.) Pyhton Server erstellt 
 ![server.png](server.png)
-2. bei Aufruf von http://localhost:8000/metrics wird die random Zahl zwischen 0-100 (CPU Auslastung) zurückgegeben
+
+## 2.) bei Aufruf von http://localhost:8000/metrics wird die random Zahl zwischen 0-100 (CPU Auslastung) zurückgegeben
 ![img.png](img.png)
-3. Prometheus kann diese CPU Metrik abfragen
-![img_1.png](img_1.png)
-4. Grafana kann diese Metrik abfragen
-![img_2.png](img_2.png)
 
 ## Aufgabe b)
-### Server bereitstellen
+## 3.) Server bereitstellen
 ```python
 class MetricHandler(SimpleHTTPRequestHandler):
     def do_GET(self):
@@ -32,7 +29,7 @@ if __name__ == "__main__":
     httpd.serve_forever()
 ```
 
-### AWS Instanz für Server
+## 4.) AWS Instanz für Server
 ```yaml
 #cloud-config
 users:
@@ -77,7 +74,7 @@ runcmd:
   - python3 ~/app/server.py
 ```
 
-### AWS Instanz für prometheus
+## 5.) AWS Instanz für prometheus
 ```yaml
 #cloud-config
 users:
@@ -152,3 +149,9 @@ runcmd:
   - sudo systemctl enable grafana-server.service
   - sudo systemctl restart grafana-server
 ```
+
+## 6.) Prometheus kann diese CPU Metrik abfragen
+![img_1.png](img_1.png)
+
+## 7.) Grafana kann diese Metrik grafisch darstellen
+![img_2.png](img_2.png)
